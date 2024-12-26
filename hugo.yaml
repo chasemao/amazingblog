@@ -1,3 +1,14 @@
+baseURL: #url
+languageCode: "en-us" 
+title: #title
+theme: amazingblog
+services:
+  googleAnalytics:
+    id: #optional
+params:
+  linkedInProfileLink: #optional
+  githubProfileLink: #optional
+  introduction: #optional
 frontmatter:
   date:
   - :filename
