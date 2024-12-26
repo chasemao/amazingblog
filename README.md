@@ -7,5 +7,5 @@ git submodule add https://github.com/chasemao/amazingblog.git /path/to/you/hugo/
 2. Copy config
 
 ```bash
-cp hugo.yaml > /path/to/you/hugo.yaml
+cp hugo.yaml > /path/to/your/hugo/project/hugo.yaml
 ```
