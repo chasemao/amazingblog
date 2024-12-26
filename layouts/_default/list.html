@@ -1,0 +1,42 @@
+{{ define "main" }}
+  <div class="body">
+    <div class="list">
+      {{ $pages := where site.RegularPages "Type" "article" }}
+      {{ $paginator := .Paginate $pages }}
+      {{ range $paginator.Pages }}
+        <div class="list-item">
+          <a class="list-item-title" href="{{ .RelPermalink }}">
+            {{ replace .Slug "-" " "}}
+          </a>
+          <div class="list-item-ctime">{{ time.Format "2006-01-02" .Date }}</div>
+        </div>
+      {{ end }}
+      {{ template "_internal/pagination.html" . }}
+    </div>
+    <div class="introduction">
+      {{ $linkedInProfileLink := .Site.Params.linkedInProfileLink }}
+      {{ if $linkedInProfileLink }}
+        {{ with resources.Get "public/linkedin.ico" }}
+          <a href="" target="_blank">
+              <img src="{{ .RelPermalink }}" alt="Linkedin profile">
+          </a>
+        {{ end }}
+      {{ end }}
+      {{ $githubProfileLink := .Site.Params.githubProfileLink }}
+      {{ if $githubProfileLink }}
+        {{ with resources.Get "public/github.ico" }}
+          <a href="" target="_blank">
+              <img src="{{ .RelPermalink }}" alt="Github profile">
+          </a>
+        {{ end }}
+      {{ end }}
+      {{ with .Site.Params.introduction }}
+        <div>
+          {{ replace . "\\n" "<br>" | safeHTML }}
+        </div>
+      {{ else }}
+        <div>Welcome to blog!</div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

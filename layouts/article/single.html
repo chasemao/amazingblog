@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <div class="body">
+    <div  class="detail">
+      <h1>{{ replace .Slug "-" " "}}</h1>
+      <div>{{ time.Format "2006-01-02" .Date}}</div>
+      <article>
+        {{ .Content }}
+      </article>
+      <aside>
+        {{ with .GetTerms "tags" }}
+          <div>{{ (index . 0).Parent.LinkTitle }}</div>
+          <ul>
+            {{ range . }}
+              <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      </aside>
+    </div>
+  </div>
+{{ end }}
+
+{{ define "title"}}
+  {{ .Slug }}
+{{ end }}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {{ if fileExists "static/favicon.ico" }}
+      <link rel="icon" href="/favicon.ico">
+    {{ end }}
+    {{ if fileExists "static/logo192.png" }}
+      <link rel="apple-touch-icon" href="/logo192.png">
+    {{ end }}
+    <title>
+      {{ block "title" . }}
+        {{/* Blocks may include default content. */}}
+        {{ .Site.Title }}
+      {{ end }}
+    </title>
+    {{ template "_internal/google_analytics.html" . }}
+    {{ $styles := resources.Get "css/blog.css" | minify }}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
+    {{ $script := resources.Get "js/remove_onenote_meta.js" | minify }}
+    <script src="{{ $script.Permalink }}" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/">
+        <h1>Chase Mao's blog</h1>
+      </a>
+    </header>
+    <!-- Code that all your templates share, like a header -->
+    {{ block "main" . }}
+    <!-- The part of the page that begins to differ between templates -->
+    {{ end }}
+    {{ block "footer" . }}
+    <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
+    {{ end }}
+  </body>
+</html>
