@@ -1,7 +1,7 @@
 1. Add into themes
 
 ```bash
-git submodule add https://github.com/chasemao/amazingblog.git themes/amazingblog
+git submodule add https://github.com/chasemao/amazingblog.git /path/to/you/hugo/project/themes/amazingblog
 ```
 
 2. Copy config
