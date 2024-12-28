@@ -1,7 +1,7 @@
 {{ define "main" }}
   <div class="body">
     <div class="list">
-      {{ $pages := where site.RegularPages "Type" "article" }}
+      {{ $pages := site.RegularPages }}
       {{ $paginator := .Paginate $pages }}
       {{ range $paginator.Pages }}
         <div class="list-item">
