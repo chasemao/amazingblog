@@ -93,3 +93,40 @@ img {
   text-align: center;
   margin-top: 50px;
 }
+
+/* Pagination Container */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+/* Pagination Item */
+.pagination .page-item {
+  margin: 0 3px;
+}
+
+.pagination .page-link {
+  padding: 5px  5px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #000;
+}
+
+/* Hover Effect */
+.pagination .page-link:hover {
+  background-color: #f0f0f0;
+}
+
+/* Disabled State */
+.pagination .page-item.disabled .page-link {
+  color: #888;
+  cursor:default;
+}
+
+/* Active State */
+.pagination .page-item.active .page-link {
+  color: #fff;
+  background-color: #282c34;
+}
+
