@@ -29,6 +29,14 @@ function generateTOC(containerSelector) {
     toc.style.padding = '10px';
     toc.style.listStyleType = 'none';
 
+    // Hide TOC on small screens
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    const handleMediaQueryChange = () => {
+        toc.style.display = mediaQuery.matches ? 'none' : 'block';
+    };
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+    handleMediaQueryChange(); // Initial check
+
     filteredHeadings.forEach((heading) => {
         const level = parseInt(heading.tagName[1], 10); // Extract heading level (1-6)
         const id = heading.id || heading.textContent.trim().replace(/\s+/g, '-').toLowerCase();
