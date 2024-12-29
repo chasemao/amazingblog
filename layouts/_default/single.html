@@ -3,6 +3,7 @@
     <div  class="detail">
       <h1>{{ replace .Slug "-" " "}}</h1>
       <div>{{ time.Format "2006-01-02" .Date}}</div>
+      <div id="toc-container"></div>
       <article>
         {{ .Content }}
       </article>
