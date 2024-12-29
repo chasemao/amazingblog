@@ -15,9 +15,9 @@
       {{ end }}
     </title>
     {{ template "_internal/google_analytics.html" . }}
-    {{ $styles := resources.Get "css/blog.css" | minify }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
-    {{ $script := resources.Get "js/remove_onenote_meta.js" | minify }}
+    {{ $styles := resources.Get "css/blog.css" }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+    {{ $script := resources.Get "js/remove_onenote_meta.js" }}
     <script src="{{ $script.RelPermalink }}" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
