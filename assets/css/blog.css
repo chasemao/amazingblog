@@ -26,12 +26,6 @@ img {
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .body {
-    width: 100%;
-  }
-}
-
 .introduction {
   flex: 0 0 30%;
   padding: 10px;
@@ -136,3 +130,19 @@ img {
   background-color: #282c34;
 }
 
+@media (max-width: 768px) {
+  .body {
+    width: 100%;
+    padding: 0 5px;
+    flex-direction: column;
+  }
+  .list, .introduction {
+    flex: 0 0 100%;
+  }
+
+  .introduction {
+    order: -1;
+    border-left: none;
+    border-bottom: 1px dotted #000;
+  }
+}
