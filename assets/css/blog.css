@@ -55,7 +55,7 @@ img {
 
 .list-item {
   display: flex;
-  padding: 10px;
+  padding: 20px 0;
   transition: color 0.3s ease, background-color 0.3s ease; /* Add background-color transition */
   cursor: pointer; /* Change cursor style to pointer */
   align-items: center;
@@ -68,14 +68,12 @@ img {
 .list-item-title {
   flex: 0 0 70%;
   color: #000;
-  padding: 10px;
   text-decoration: none;
 }
 
 .list-item-ctime {
   flex: 0 0 30%;
   color: #aaa; 
-  padding: 10px;
   font-size: small;
   text-align: center;
 }
