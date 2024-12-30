@@ -22,5 +22,5 @@
 {{ end }}
 
 {{ define "title"}}
-  {{ .Slug }}
+  {{ replace .Slug "-" " "}} - {{ .Site.Title }}
 {{ end }}
