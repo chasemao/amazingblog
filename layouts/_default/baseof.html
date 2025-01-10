@@ -22,6 +22,13 @@
     <script src="{{ $script.RelPermalink }}" defer></script>
     {{ $script := resources.Get "js/remove_onenote_meta.js" }}
     <script src="{{ $script.RelPermalink }}" defer></script>
+    {{ with .File }}
+      {{ $suffix := path.Ext .Path }}
+      {{ if (or (eq $suffix ".html") (eq $suffix ".htm") false) }}
+        {{ $script := resources.Get "js/format_code.js" }}
+        <script src="{{ $script.RelPermalink }}" defer></script>
+      {{ end }}
+    {{ end }}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
